@@ -22,12 +22,16 @@ echo -n "-----> Installing julia ...."
 
 deps="https://julialang.s3.amazonaws.com/bin/linux/x64/0.5/julia-0.5.0-linux-x86_64.tar.gz"
 
+
+cd $HOME
+rm -rf julia
+mkdir julia
+
 for dep in $deps; do
   depb=$(basename $dep)
   echo "        - $depb"
   curl -LO $dep
-  tar -C -xzf $depb
-  dpkg -x $depb ${BUILD_DIR}/julia
+  tar -xzf $depb
 done
 
 set-env PATH '$HOME/julia/usr/bin:$PATH'
