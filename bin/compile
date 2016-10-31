@@ -34,7 +34,8 @@ set-env PATH '$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
 set-env LIBRARY_PATH '$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
 set-env LD_LIBRARY_PATH '$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
 
-export LD_LIBRARY_PATH=./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu
+export LIBRARY_PATH=./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH
+export LD_LIBRARY_PATH=./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 export PATH=./.apt/usr/bin:./julia-3c9d75391c/bin:$PATH
 echo $PATH
 echo $LD_LIBRARY_PATH
