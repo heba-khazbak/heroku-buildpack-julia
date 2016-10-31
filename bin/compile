@@ -62,7 +62,7 @@ if [ "${PIPESTATUS[*]}" != "0" ]; then
   echo " !     Failed to install ${JULIA_DIST}"
   exit 1
 fi
-cd ${BUILD_DIR}
+
 # these are not presistent in heroku
 julia -e "Pkg.update()"
 while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
@@ -79,6 +79,6 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
     fi
   fi
 
-done < "REQUIRE"
+done < "${BUILD_DIR}/REQUIRE"
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
