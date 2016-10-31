@@ -4,6 +4,7 @@
 # fail fast
 set -e
 
+mkdir .profile.d
 PROFILE_PATH=".profile.d/julia.sh"
 
 set-env() {
