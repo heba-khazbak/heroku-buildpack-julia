@@ -38,14 +38,14 @@ done
 cd $HOME
 
 
-set-env PATH '$HOME/julia/usr/bin:$PATH'
-set-env LIBRARY_PATH '$HOME/julia/usr/lib:$HOME/julia/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH'
-set-env LD_LIBRARY_PATH '$HOME/julia/usr/lib:$HOME/julia/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
+set-env PATH '$HOME/julia/julia-3c9d75391c/bin:$PATH'
+set-env LIBRARY_PATH '$HOME/julia/julia-3c9d75391c/lib:$HOME/julia/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
+set-env LD_LIBRARY_PATH '$HOME/julia/julia-3c9d75391c/lib:$HOME/julia/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
 
-export LD_LIBRARY_PATH=./julia/usr/lib:./julia/usr/lib/x86_64-linux-gnu
-export PATH=./julia/usr/bin:$PATH
-LD_LIBRARY_PATH=./julia/usr/lib:./julia/usr/lib/x86_64-linux-gnu
-PATH=./julia/usr/bin:$PATH
+export LD_LIBRARY_PATH=./julia/julia-3c9d75391c/lib:./julia/julia-3c9d75391c/lib/x86_64-linux-gnu
+export PATH=./julia/julia-3c9d75391c/bin:$PATH
+LD_LIBRARY_PATH=./julia/julia-3c9d75391c/lib:./julia/julia-3c9d75391c/lib/x86_64-linux-gnu
+PATH=./julia/julia-3c9d75391c/bin:$PATH
 echo $PATH
 
 # dep="https://github.com/JuliaLang/julia/releases/download/v0.3.7/julia-0.3.7_cb9bcae93a.tar.gz"
