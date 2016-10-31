@@ -39,6 +39,7 @@ export PATH=./julia-3c9d75391c/bin:$PATH
 LD_LIBRARY_PATH=./julia-3c9d75391c/lib:./ulia-3c9d75391c/lib/x86_64-linux-gnu
 PATH=./.apt/usr/bin:./julia-3c9d75391c/bin:$PATH
 echo $PATH
+echo julia -v
 
 # dep="https://github.com/JuliaLang/julia/releases/download/v0.3.7/julia-0.3.7_cb9bcae93a.tar.gz"
 # depb=$(basename $dep)
