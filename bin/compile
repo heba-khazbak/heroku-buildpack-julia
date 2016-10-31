@@ -26,6 +26,7 @@ deps="https://julialang.s3.amazonaws.com/bin/linux/x64/0.5/julia-0.5.0-linux-x86
 cd $HOME
 rm -rf julia
 mkdir julia
+cd julia
 
 for dep in $deps; do
   depb=$(basename $dep)
