@@ -22,12 +22,6 @@ echo -n "-----> Installing julia ...."
 
 deps="https://julialang.s3.amazonaws.com/bin/linux/x64/0.5/julia-0.5.0-linux-x86_64.tar.gz"
 
-
-cd $HOME
-rm -rf julia
-mkdir julia
-cd julia
-
 for dep in $deps; do
   depb=$(basename $dep)
   echo "        - $depb"
@@ -35,17 +29,15 @@ for dep in $deps; do
   tar -xzf $depb
 done
 
-cd $HOME
 
+set-env PATH '$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
+set-env LIBRARY_PATH '$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
+set-env LD_LIBRARY_PATH '$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
 
-set-env PATH '$HOME/julia/julia-3c9d75391c/bin:$PATH'
-set-env LIBRARY_PATH '$HOME/julia/julia-3c9d75391c/lib:$HOME/julia/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
-set-env LD_LIBRARY_PATH '$HOME/julia/julia-3c9d75391c/lib:$HOME/julia/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
-
-export LD_LIBRARY_PATH=./julia/julia-3c9d75391c/lib:./julia/julia-3c9d75391c/lib/x86_64-linux-gnu
-export PATH=./julia/julia-3c9d75391c/bin:$PATH
-LD_LIBRARY_PATH=./julia/julia-3c9d75391c/lib:./julia/julia-3c9d75391c/lib/x86_64-linux-gnu
-PATH=./julia/julia-3c9d75391c/bin:$PATH
+export LD_LIBRARY_PATH=./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu
+export PATH=./julia-3c9d75391c/bin:$PATH
+LD_LIBRARY_PATH=./julia-3c9d75391c/lib:./ulia-3c9d75391c/lib/x86_64-linux-gnu
+PATH=./.apt/usr/bin:./julia-3c9d75391c/bin:$PATH
 echo $PATH
 
 # dep="https://github.com/JuliaLang/julia/releases/download/v0.3.7/julia-0.3.7_cb9bcae93a.tar.gz"
@@ -79,6 +71,6 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
     fi
   fi
 
-done < "${BUILD_DIR}/REQUIRE"
+done < "REQUIRE"
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
