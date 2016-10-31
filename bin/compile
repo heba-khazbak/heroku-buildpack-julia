@@ -4,7 +4,6 @@
 # fail fast
 set -e
 
-mkdir .profile.d
 PROFILE_PATH=".profile.d/julia.sh"
 
 set-env() {
@@ -35,6 +34,9 @@ for dep in $deps; do
   curl -LO $dep
   tar -xzf $depb
 done
+
+cd $HOME
+
 
 set-env PATH '$HOME/julia/usr/bin:$PATH'
 set-env LIBRARY_PATH '$HOME/julia/usr/lib:$HOME/julia/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH'
