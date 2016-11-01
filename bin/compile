@@ -59,7 +59,6 @@ fi
 
 # these are not presistent in heroku
 julia -e "Pkg.update()"
-julia -e "ENV[\"PYTHON\"]=\"\""
 while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
   if [[ $julia_dep == git* ]]; then
     echo 'in clone'
@@ -75,5 +74,8 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
   fi 
 
 done < "REQUIRE"
+
+julia -e "ENV[\"PYTHON\"]=\"\""
+julia -e "Pkg.build(\"PyCall\")"
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
