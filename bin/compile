@@ -78,8 +78,7 @@ done < "REQUIRE"
 echo "Adding PyCall..."
 julia -e "ENV[\"PYTHON\"]=\"\""
 julia -e "Pkg.build(\"PyCall\")"
+julia -e "using PyPlot"
 
-echo $PATH
-echo $LD_LIBRARY_PATH
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
