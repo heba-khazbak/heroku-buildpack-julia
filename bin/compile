@@ -57,7 +57,7 @@ if [ "${PIPESTATUS[*]}" != "0" ]; then
   exit 1
 fi
 
-ln -s $HOME/.heroku/python/bin/python2.7 $HOME/usr/bin/python
+# ln -s ./.heroku/python/bin/python2.7 ./usr/bin/python
 
 # these are not presistent in heroku
 julia -e "Pkg.update()"
@@ -78,6 +78,7 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
 done < "REQUIRE"
 
 echo "Adding PyCall..."
+echo which python
 julia -e "ENV[\"PYTHON\"]=\"\""
 julia -e "Pkg.build(\"PyCall\")"
 
