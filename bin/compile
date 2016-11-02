@@ -57,7 +57,7 @@ if [ "${PIPESTATUS[*]}" != "0" ]; then
   exit 1
 fi
 
-ln -s ./.heroku/python/bin/python2.7 ./usr/bin/python
+ln -s $HOME/.heroku/python/bin/python2.7 $HOME/usr/bin/python
 
 # these are not presistent in heroku
 julia -e "Pkg.update()"
