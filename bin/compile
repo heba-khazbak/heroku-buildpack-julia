@@ -81,6 +81,8 @@ done < "REQUIRE"
 # which python
 # julia -e "ENV[\"PYTHON\"]=\"\""
 # julia -e "Pkg.build(\"PyCall\")"
+echo "Using..."
+julia -e "using Gadfly"
 
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
