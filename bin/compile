@@ -30,6 +30,17 @@ for dep in $deps; do
   rm $depb
 done
 
+deps="https://bootstrap.pypa.io/get-pip.py"
+
+for dep in $deps; do
+  depb=$(basename $dep)
+  echo "        - $depb"
+  curl -LO $dep
+  python get-pip.py
+  rm $depb
+done
+
+
 set-env PATH '$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
 set-env LIBRARY_PATH '$HOME/.apt/usr/lib/pyshared/python2.7/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
 set-env LD_LIBRARY_PATH '$HOME/.apt/usr/lib/pyshared/python2.7/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
