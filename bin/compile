@@ -77,10 +77,10 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
 
 done < "REQUIRE"
 
-echo "Adding PyCall..."
-which python
-julia -e "ENV[\"PYTHON\"]=\"\""
-julia -e "Pkg.build(\"PyCall\")"
+# echo "Adding PyCall..."
+# which python
+# julia -e "ENV[\"PYTHON\"]=\"\""
+# julia -e "Pkg.build(\"PyCall\")"
 
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
