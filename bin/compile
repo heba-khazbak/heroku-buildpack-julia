@@ -30,8 +30,6 @@ for dep in $deps; do
   rm $depb
 done
 
-rm /usr/bin/python
-
 set-env PATH '$HOME/.heroku/python/bin:$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
 set-env LIBRARY_PATH '$HOME/.heroku/python/lib/python2.7/site-packages/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
 set-env LD_LIBRARY_PATH '$HOME/.heroku/python/lib/python2.7/site-packages/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
