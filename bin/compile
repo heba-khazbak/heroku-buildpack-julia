@@ -76,5 +76,7 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
 
 done < "REQUIRE"
 
+echo "Using .."
+julia -e "using Gadfly"
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
