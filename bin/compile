@@ -30,13 +30,13 @@ for dep in $deps; do
 done
 
 
-set-env PATH '$HOME/.heroku/python/bin:$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
-set-env LIBRARY_PATH '$HOME/.heroku/python/lib/python2.7/site-packages/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
-set-env LD_LIBRARY_PATH '$HOME/.heroku/python/lib/python2.7/site-packages/matplotlib:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
+set-env PATH '$HOME/.apt/usr/bin:$HOME/julia-3c9d75391c/bin:$PATH'
+set-env LIBRARY_PATH '$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH'
+set-env LD_LIBRARY_PATH '$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/julia-3c9d75391c/lib:$HOME/julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
 
-export LIBRARY_PATH=./.heroku/python/lib/python2.7/site-packages/matplotlib:./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH
-export LD_LIBRARY_PATH=./.heroku/python/lib/python2.7/site-packages/matplotlib:./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-export PATH=./.heroku/python/bin:./.apt/usr/bin:./julia-3c9d75391c/bin:$PATH
+export LIBRARY_PATH=./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LIBRARY_PATH
+export LD_LIBRARY_PATH=./.apt/usr/lib/x86_64-linux-gnu:./julia-3c9d75391c/lib:./julia-3c9d75391c/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export PATH=./.apt/usr/bin:./julia-3c9d75391c/bin:$PATH
 echo $PATH
 echo $LD_LIBRARY_PATH
 echo $(cmake -version)
@@ -57,7 +57,6 @@ if [ "${PIPESTATUS[*]}" != "0" ]; then
   exit 1
 fi
 
-# ln -s ./.heroku/python/bin/python2.7 ./usr/bin/python
 
 # these are not presistent in heroku
 julia -e "Pkg.update()"
@@ -76,13 +75,6 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
   fi 
 
 done < "REQUIRE"
-
-# echo "Adding PyCall..."
-# which python
-# julia -e "ENV[\"PYTHON\"]=\"\""
-# julia -e "Pkg.build(\"PyCall\")"
-echo "Using..."
-julia -e "using Gadfly"
 
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
