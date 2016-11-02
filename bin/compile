@@ -76,6 +76,7 @@ while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
   fi 
 
 done < "REQUIRE"
-
+julia -e "using Blink;Blink.AtomShell.install()"
+julia -e "using Plotly"
 
 cp -r ~/.julia ${BUILD_DIR}/.julia
