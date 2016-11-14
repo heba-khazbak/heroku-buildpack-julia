@@ -62,7 +62,7 @@ fi
 # these are not presistent in heroku
 julia -e "Pkg.update()"
 while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
-  if [[ $julia_dep == git* ]]; then
+  if [[ $julia_dep == https://github.com* ]]; then
     echo 'in clone'
         array=( $julia_dep )
         if [[ ${#array[@]} > 1 ]]; then
