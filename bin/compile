@@ -64,6 +64,7 @@ julia -e "Pkg.update()"
 while IFS='' read -r julia_dep || [[ -n "$julia_dep" ]]; do
   if [[ $julia_dep == git* ]]; then
     echo 'in clone'
+        array=( $julia_dep )
         if [[ ${#array[@]} > 1 ]]; then
         julia -e "Pkg.clone(\"${array[0]}\")"
         julia -e "Pkg.checkout(\"${array[1]}\",\"${array[2]}\")"
